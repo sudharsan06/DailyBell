@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">DailyBell</string>
+
+    <!-- Home-screen widget -->
+    <string name="widget_description">Current activity, countdown, what\'s next and your day\'s progress</string>
+    <string name="widget_now">Now</string>
+    <string name="widget_up_next">Up next</string>
+    <string name="widget_tomorrow">Tomorrow</string>
+    <string name="widget_remaining">remaining</string>
+    <string name="widget_to_start">until it starts</string>
+    <string name="widget_preview_duration">1h 30m</string>
+    <string name="widget_empty_title">No activities yet</string>
+    <string name="widget_empty_body">Tap to set up your timetable</string>
+    <string name="widget_after_that">After that</string>
+    <string name="widget_starts_at">Starts %1$s</string>
+    <string name="widget_last_today">Last one today</string>
+    <string name="widget_day_end_time">Day ends %1$s</string>
+    <string name="widget_day_starts_time">Starts %1$s</string>
+    <string name="widget_done_count">✓ %1$d of %2$d done</string>
+    <string name="widget_all_done">✓ All %1$d done today 🎉</string>
+    <string name="widget_preview_next">Lunch</string>
+    <string name="widget_preview_next_time">12:45 PM · 30m</string>
+    <string name="widget_preview_done">✓ 4 of 13 done</string>
+    <string name="widget_preview_day_end">Day ends 7:00 PM</string>
+    <string name="widget_preview_title">Office Work</string>
+    <string name="widget_preview_range">11:15 AM – 12:45 PM</string>
+</resources>

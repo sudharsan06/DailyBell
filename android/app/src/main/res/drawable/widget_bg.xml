@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rounded card. Default indigo (used in the picker preview); recoloured at
+     runtime with the theme colour via setColorFilter (SRC_ATOP). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="#FF4B4BC8" />
+    <corners android:radius="24dp" />
+</shape>
