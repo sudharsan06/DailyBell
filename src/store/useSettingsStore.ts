@@ -1,6 +1,10 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { BELL_SOUNDS } from '../data/defaultTimetable';
+import {
+  BELL_SOUNDS,
+  DEFAULT_BELL_VOLUME,
+  isBellVolumeLevel,
+} from '../data/defaultTimetable';
 import { AlarmSettings } from '../models/types';
 import { DEFAULT_ACCENT, isAccentId } from '../theme/theme';
 import { persistStorage } from './storage';
@@ -18,6 +22,7 @@ export const DEFAULT_SETTINGS: AlarmSettings = {
   vibrationEnabled: true,
   ringAtEnd: true,
   bellSound: 'bell_school',
+  bellVolume: DEFAULT_BELL_VOLUME,
   theme: 'system',
   accent: DEFAULT_ACCENT,
 };
@@ -53,6 +58,9 @@ export const useSettingsStore = create<SettingsState>()(
           bellSound: BELL_SOUNDS.some(s => s.id === p.bellSound)
             ? (p.bellSound as AlarmSettings['bellSound'])
             : current.bellSound,
+          bellVolume: isBellVolumeLevel(p.bellVolume)
+            ? p.bellVolume
+            : current.bellVolume,
           theme: ['system', 'light', 'dark'].includes(p.theme as string)
             ? (p.theme as AlarmSettings['theme'])
             : current.theme,
@@ -75,6 +83,7 @@ export const selectAlarmSettings = (s: SettingsState): AlarmSettings => ({
   vibrationEnabled: s.vibrationEnabled,
   ringAtEnd: s.ringAtEnd,
   bellSound: s.bellSound,
+  bellVolume: s.bellVolume,
   theme: s.theme,
   accent: s.accent,
 });

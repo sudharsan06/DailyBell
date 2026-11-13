@@ -1,4 +1,4 @@
-import { Activity, BellSound } from '../models/types';
+import { Activity, BellSound, BellVolumeLevel } from '../models/types';
 import { toMinutes } from '../utils/time';
 
 const make = (
@@ -52,3 +52,45 @@ export const BELL_SOUNDS: BellSound[] = [
 
 export const getBellSound = (id: string): BellSound =>
   BELL_SOUNDS.find(s => s.id === id) ?? BELL_SOUNDS[0];
+
+/**
+ * Bell volume slider. Notification sounds can't be scaled at runtime, so every
+ * step below Max ships as its own pre-attenuated file (<sound>_vol<step>.wav),
+ * written by scripts/generate-bells.py with the same curve.
+ */
+export const MIN_BELL_VOLUME: BellVolumeLevel = 1;
+export const MAX_BELL_VOLUME: BellVolumeLevel = 10;
+/** Very low by default; the user turns it up in Settings. */
+export const DEFAULT_BELL_VOLUME: BellVolumeLevel = 2;
+/** Each step is this much louder (equal perceived steps). */
+const DB_PER_STEP = 2.5;
+
+export const isBellVolumeLevel = (v: unknown): v is BellVolumeLevel =>
+  Number.isInteger(v) &&
+  (v as number) >= MIN_BELL_VOLUME &&
+  (v as number) <= MAX_BELL_VOLUME;
+
+/** Linear amplitude 0..1 for a step (step 2 ≈ −20 dB, step 10 = 0 dB). */
+export const bellVolumeGain = (level: BellVolumeLevel) =>
+  Math.pow(10, (-(MAX_BELL_VOLUME - level) * DB_PER_STEP) / 20);
+
+export const bellVolumeLabel = (level: BellVolumeLevel) =>
+  level <= 2
+    ? 'Very low'
+    : level <= 4
+    ? 'Low'
+    : level <= 6
+    ? 'Medium'
+    : level <= 8
+    ? 'High'
+    : 'Max';
+
+/** Notification sound resource name (no extension) for a sound at a volume. */
+export const bellResourceName = (id: string, level: BellVolumeLevel) => {
+  const base = getBellSound(id).id;
+  return level === MAX_BELL_VOLUME ? base : `${base}_vol${level}`;
+};
+
+/** Bundled file name (with extension) for a sound at a volume. */
+export const bellFileName = (id: string, level: BellVolumeLevel) =>
+  `${bellResourceName(id, level)}.wav`;

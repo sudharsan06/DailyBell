@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F9E18B8FEEBC5C5069E18D47 /* bell_school_vol5.wav in Resources */ = {isa = PBXBuildFile; fileRef = A1B51CDB9E54BE1641FAB9A1 /* bell_school_vol5.wav */; };
+		329258AD74E0B2E269F5A784 /* bell_school_vol6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 085EF14D903C37A976A6F974 /* bell_school_vol6.wav */; };
+		D385A9E49AA0F3B47418BE54 /* bell_school_vol7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 36E62A1E00BF0B3B102D26D7 /* bell_school_vol7.wav */; };
+		27C3AFF3AE00475A7AB6E993 /* bell_school_vol8.wav in Resources */ = {isa = PBXBuildFile; fileRef = DB09EB6BFAEC8364A5CE1108 /* bell_school_vol8.wav */; };
+		A81E437D1C54057BD22D2184 /* bell_school_vol9.wav in Resources */ = {isa = PBXBuildFile; fileRef = B9B642829D3FB9DEAD723BF7 /* bell_school_vol9.wav */; };
+		A80BC7DE2007B36A5390E892 /* bell_chime_vol5.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8C9A3E99C8D0A2510088CA3 /* bell_chime_vol5.wav */; };
+		A734DE5CB671E30D94D73A23 /* bell_chime_vol6.wav in Resources */ = {isa = PBXBuildFile; fileRef = FF2670D25B4425F57D594BBD /* bell_chime_vol6.wav */; };
+		B34AC7951EECB7D762AD4A14 /* bell_chime_vol7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8A476C74A47A1F26E20F4562 /* bell_chime_vol7.wav */; };
+		207086C4B3275B516B4B8B30 /* bell_chime_vol8.wav in Resources */ = {isa = PBXBuildFile; fileRef = C9A2518006355BB7D6E31E66 /* bell_chime_vol8.wav */; };
+		D4BBA3EAB9521734E6B555D4 /* bell_chime_vol9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2451E60176FC3A6A7A89ED02 /* bell_chime_vol9.wav */; };
+		4EDC1EFE2B8357E09C17F8C1 /* bell_digital_vol5.wav in Resources */ = {isa = PBXBuildFile; fileRef = F4EA30DB190850141C862C4F /* bell_digital_vol5.wav */; };
+		65785112C23B282D1B5BB332 /* bell_digital_vol6.wav in Resources */ = {isa = PBXBuildFile; fileRef = E777CCC4AF983DD8F88F886F /* bell_digital_vol6.wav */; };
+		85FAEC29BAEBD4E164EA96BB /* bell_digital_vol7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 847B3B768361B62562FF0DED /* bell_digital_vol7.wav */; };
+		C37800500697DD9DA53A57B1 /* bell_digital_vol8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 37AA50AFF3EEC75695D892EB /* bell_digital_vol8.wav */; };
+		2697A63D3B90DEBA8DAA0D70 /* bell_digital_vol9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2ECED9D587CA66C816DE92F8 /* bell_digital_vol9.wav */; };
+		45065C4844C2EA901522E762 /* bell_school_vol1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9EDD17E54A623190B5ACD04E /* bell_school_vol1.wav */; };
+		4820C1EDD707709266EDBE62 /* bell_school_vol2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7FC3E1FD1716AB1B33204B0A /* bell_school_vol2.wav */; };
+		669E94C1383DC6CADA09C78F /* bell_school_vol3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C4EFC6F24E41D338BC830 /* bell_school_vol3.wav */; };
+		2155D206099872D3CCA58801 /* bell_school_vol4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98F1A34D42C81BA3907F287A /* bell_school_vol4.wav */; };
+		2333EB10B032FB20AA136BBA /* bell_chime_vol1.wav in Resources */ = {isa = PBXBuildFile; fileRef = CADEE79C635AABF260F57758 /* bell_chime_vol1.wav */; };
+		909557364FC15CF247FDFA71 /* bell_chime_vol2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 86E4BDA69057D69793AAB9A6 /* bell_chime_vol2.wav */; };
+		05197B20FE1223B1FA720149 /* bell_chime_vol3.wav in Resources */ = {isa = PBXBuildFile; fileRef = E6EC2EE196548EA7332CE3FF /* bell_chime_vol3.wav */; };
+		85E274CE17B1B3CBC56320CD /* bell_chime_vol4.wav in Resources */ = {isa = PBXBuildFile; fileRef = E38E07F80853F44545D16F3A /* bell_chime_vol4.wav */; };
+		463CF94BEC124A7D2B1A5571 /* bell_digital_vol1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3F48A6C5197DF348DE800CC3 /* bell_digital_vol1.wav */; };
+		C3CA93C2017EF77A650A373A /* bell_digital_vol2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9BB3FD29DFEA425F32DCD185 /* bell_digital_vol2.wav */; };
+		A47F8A0148D3106F98AF2F5A /* bell_digital_vol3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 05EA436B949380199ACC2E72 /* bell_digital_vol3.wav */; };
+		EEE72F13FE11EA5182D13889 /* bell_digital_vol4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 88F90B106778A50B02B66B66 /* bell_digital_vol4.wav */; };
 		0C80B921A6F3F58F76C31292 /* libPods-DailyBell.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-DailyBell.a */; };
 		10A6C0241DCBBD3E448162A4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69CD743C6769CF43E3900649 /* AVFoundation.framework */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -19,6 +46,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1B51CDB9E54BE1641FAB9A1 /* bell_school_vol5.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_school_vol5.wav; sourceTree = "<group>"; };
+		085EF14D903C37A976A6F974 /* bell_school_vol6.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_school_vol6.wav; sourceTree = "<group>"; };
+		36E62A1E00BF0B3B102D26D7 /* bell_school_vol7.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_school_vol7.wav; sourceTree = "<group>"; };
+		DB09EB6BFAEC8364A5CE1108 /* bell_school_vol8.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_school_vol8.wav; sourceTree = "<group>"; };
+		B9B642829D3FB9DEAD723BF7 /* bell_school_vol9.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_school_vol9.wav; sourceTree = "<group>"; };
+		D8C9A3E99C8D0A2510088CA3 /* bell_chime_vol5.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_chime_vol5.wav; sourceTree = "<group>"; };
+		FF2670D25B4425F57D594BBD /* bell_chime_vol6.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_chime_vol6.wav; sourceTree = "<group>"; };
+		8A476C74A47A1F26E20F4562 /* bell_chime_vol7.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_chime_vol7.wav; sourceTree = "<group>"; };
+		C9A2518006355BB7D6E31E66 /* bell_chime_vol8.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_chime_vol8.wav; sourceTree = "<group>"; };
+		2451E60176FC3A6A7A89ED02 /* bell_chime_vol9.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_chime_vol9.wav; sourceTree = "<group>"; };
+		F4EA30DB190850141C862C4F /* bell_digital_vol5.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_digital_vol5.wav; sourceTree = "<group>"; };
+		E777CCC4AF983DD8F88F886F /* bell_digital_vol6.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_digital_vol6.wav; sourceTree = "<group>"; };
+		847B3B768361B62562FF0DED /* bell_digital_vol7.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_digital_vol7.wav; sourceTree = "<group>"; };
+		37AA50AFF3EEC75695D892EB /* bell_digital_vol8.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_digital_vol8.wav; sourceTree = "<group>"; };
+		2ECED9D587CA66C816DE92F8 /* bell_digital_vol9.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_digital_vol9.wav; sourceTree = "<group>"; };
+		9EDD17E54A623190B5ACD04E /* bell_school_vol1.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_school_vol1.wav; sourceTree = "<group>"; };
+		7FC3E1FD1716AB1B33204B0A /* bell_school_vol2.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_school_vol2.wav; sourceTree = "<group>"; };
+		8B2C4EFC6F24E41D338BC830 /* bell_school_vol3.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_school_vol3.wav; sourceTree = "<group>"; };
+		98F1A34D42C81BA3907F287A /* bell_school_vol4.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_school_vol4.wav; sourceTree = "<group>"; };
+		CADEE79C635AABF260F57758 /* bell_chime_vol1.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_chime_vol1.wav; sourceTree = "<group>"; };
+		86E4BDA69057D69793AAB9A6 /* bell_chime_vol2.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_chime_vol2.wav; sourceTree = "<group>"; };
+		E6EC2EE196548EA7332CE3FF /* bell_chime_vol3.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_chime_vol3.wav; sourceTree = "<group>"; };
+		E38E07F80853F44545D16F3A /* bell_chime_vol4.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_chime_vol4.wav; sourceTree = "<group>"; };
+		3F48A6C5197DF348DE800CC3 /* bell_digital_vol1.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_digital_vol1.wav; sourceTree = "<group>"; };
+		9BB3FD29DFEA425F32DCD185 /* bell_digital_vol2.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_digital_vol2.wav; sourceTree = "<group>"; };
+		05EA436B949380199ACC2E72 /* bell_digital_vol3.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_digital_vol3.wav; sourceTree = "<group>"; };
+		88F90B106778A50B02B66B66 /* bell_digital_vol4.wav */ = {isa = PBXFileReference; includeInIndex = 1; path = bell_digital_vol4.wav; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* DailyBell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyBell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DailyBell/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DailyBell/Info.plist; sourceTree = "<group>"; };
@@ -54,6 +108,33 @@
 				E0DDD64ECB972E5DADA12FE7 /* bell_school.wav */,
 				E88274550633403A9F03AD16 /* bell_chime.wav */,
 				750C98773EFF4D59836D06ED /* bell_digital.wav */,
+				A1B51CDB9E54BE1641FAB9A1 /* bell_school_vol5.wav */,
+				085EF14D903C37A976A6F974 /* bell_school_vol6.wav */,
+				36E62A1E00BF0B3B102D26D7 /* bell_school_vol7.wav */,
+				DB09EB6BFAEC8364A5CE1108 /* bell_school_vol8.wav */,
+				B9B642829D3FB9DEAD723BF7 /* bell_school_vol9.wav */,
+				D8C9A3E99C8D0A2510088CA3 /* bell_chime_vol5.wav */,
+				FF2670D25B4425F57D594BBD /* bell_chime_vol6.wav */,
+				8A476C74A47A1F26E20F4562 /* bell_chime_vol7.wav */,
+				C9A2518006355BB7D6E31E66 /* bell_chime_vol8.wav */,
+				2451E60176FC3A6A7A89ED02 /* bell_chime_vol9.wav */,
+				F4EA30DB190850141C862C4F /* bell_digital_vol5.wav */,
+				E777CCC4AF983DD8F88F886F /* bell_digital_vol6.wav */,
+				847B3B768361B62562FF0DED /* bell_digital_vol7.wav */,
+				37AA50AFF3EEC75695D892EB /* bell_digital_vol8.wav */,
+				2ECED9D587CA66C816DE92F8 /* bell_digital_vol9.wav */,
+				9EDD17E54A623190B5ACD04E /* bell_school_vol1.wav */,
+				7FC3E1FD1716AB1B33204B0A /* bell_school_vol2.wav */,
+				8B2C4EFC6F24E41D338BC830 /* bell_school_vol3.wav */,
+				98F1A34D42C81BA3907F287A /* bell_school_vol4.wav */,
+				CADEE79C635AABF260F57758 /* bell_chime_vol1.wav */,
+				86E4BDA69057D69793AAB9A6 /* bell_chime_vol2.wav */,
+				E6EC2EE196548EA7332CE3FF /* bell_chime_vol3.wav */,
+				E38E07F80853F44545D16F3A /* bell_chime_vol4.wav */,
+				3F48A6C5197DF348DE800CC3 /* bell_digital_vol1.wav */,
+				9BB3FD29DFEA425F32DCD185 /* bell_digital_vol2.wav */,
+				05EA436B949380199ACC2E72 /* bell_digital_vol3.wav */,
+				88F90B106778A50B02B66B66 /* bell_digital_vol4.wav */,
 			);
 			name = Sounds;
 			path = DailyBell/Sounds;
@@ -193,6 +274,33 @@
 				EC21205FEE92FE0C2D4095AC /* bell_school.wav in Resources */,
 				3184CA458FA8916D104488C3 /* bell_chime.wav in Resources */,
 				E0B5EBAF7B029D1A5F2B008E /* bell_digital.wav in Resources */,
+				F9E18B8FEEBC5C5069E18D47 /* bell_school_vol5.wav in Resources */,
+				329258AD74E0B2E269F5A784 /* bell_school_vol6.wav in Resources */,
+				D385A9E49AA0F3B47418BE54 /* bell_school_vol7.wav in Resources */,
+				27C3AFF3AE00475A7AB6E993 /* bell_school_vol8.wav in Resources */,
+				A81E437D1C54057BD22D2184 /* bell_school_vol9.wav in Resources */,
+				A80BC7DE2007B36A5390E892 /* bell_chime_vol5.wav in Resources */,
+				A734DE5CB671E30D94D73A23 /* bell_chime_vol6.wav in Resources */,
+				B34AC7951EECB7D762AD4A14 /* bell_chime_vol7.wav in Resources */,
+				207086C4B3275B516B4B8B30 /* bell_chime_vol8.wav in Resources */,
+				D4BBA3EAB9521734E6B555D4 /* bell_chime_vol9.wav in Resources */,
+				4EDC1EFE2B8357E09C17F8C1 /* bell_digital_vol5.wav in Resources */,
+				65785112C23B282D1B5BB332 /* bell_digital_vol6.wav in Resources */,
+				85FAEC29BAEBD4E164EA96BB /* bell_digital_vol7.wav in Resources */,
+				C37800500697DD9DA53A57B1 /* bell_digital_vol8.wav in Resources */,
+				2697A63D3B90DEBA8DAA0D70 /* bell_digital_vol9.wav in Resources */,
+				45065C4844C2EA901522E762 /* bell_school_vol1.wav in Resources */,
+				4820C1EDD707709266EDBE62 /* bell_school_vol2.wav in Resources */,
+				669E94C1383DC6CADA09C78F /* bell_school_vol3.wav in Resources */,
+				2155D206099872D3CCA58801 /* bell_school_vol4.wav in Resources */,
+				2333EB10B032FB20AA136BBA /* bell_chime_vol1.wav in Resources */,
+				909557364FC15CF247FDFA71 /* bell_chime_vol2.wav in Resources */,
+				05197B20FE1223B1FA720149 /* bell_chime_vol3.wav in Resources */,
+				85E274CE17B1B3CBC56320CD /* bell_chime_vol4.wav in Resources */,
+				463CF94BEC124A7D2B1A5571 /* bell_digital_vol1.wav in Resources */,
+				C3CA93C2017EF77A650A373A /* bell_digital_vol2.wav in Resources */,
+				A47F8A0148D3106F98AF2F5A /* bell_digital_vol3.wav in Resources */,
+				EEE72F13FE11EA5182D13889 /* bell_digital_vol4.wav in Resources */,
 				A550296A8217CE65E11F591F /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

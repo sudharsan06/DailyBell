@@ -27,6 +27,7 @@ export const useAlarmSync = () => {
   const vibrationEnabled = useSettingsStore(s => s.vibrationEnabled);
   const ringAtEnd = useSettingsStore(s => s.ringAtEnd);
   const bellSound = useSettingsStore(s => s.bellSound);
+  const bellVolume = useSettingsStore(s => s.bellVolume);
   const accent = useSettingsStore(s => s.accent);
   const running = useRef<Promise<void> | null>(null);
   const pending = useRef(false);
@@ -55,6 +56,7 @@ export const useAlarmSync = () => {
             CHANNEL_VERSION, // new sounds/channels force a reschedule
             settings.alarmsEnabled,
             settings.bellSound,
+            settings.bellVolume,
             settings.vibrationEnabled,
             settings.accent,
             perm.permission,
@@ -111,6 +113,7 @@ export const useAlarmSync = () => {
     vibrationEnabled,
     ringAtEnd,
     bellSound,
+    bellVolume,
     accent,
     sync,
   ]);

@@ -12,6 +12,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AlarmToggle } from '../components/AlarmToggle';
 import { Card } from '../components/Card';
 import { CurrentActivityCard } from '../components/CurrentActivityCard';
+import { HomeBannerAd } from '../components/HomeBannerAd';
 import { NextActivityCard } from '../components/NextActivityCard';
 import { PermissionBanner } from '../components/PermissionBanner';
 import { SectionHeader } from '../components/SectionHeader';
@@ -200,6 +201,7 @@ export const HomeScreen = ({ navigation }: Props) => {
           ))
         )}
       </ScrollView>
+      <HomeBannerAd />
     </View>
   );
 };

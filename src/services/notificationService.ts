@@ -11,12 +11,17 @@ import notifee, {
   TimestampTrigger,
   TriggerType,
 } from 'react-native-notify-kit';
-import { getBellSound } from '../data/defaultTimetable';
+import {
+  bellFileName,
+  bellResourceName,
+  getBellSound,
+} from '../data/defaultTimetable';
 import {
   Activity,
   AlarmSettings,
   BellEvent,
   BellSoundId,
+  BellVolumeLevel,
 } from '../models/types';
 import { PermissionState } from '../store/useAlarmStore';
 import { getAccent } from '../theme/theme';
@@ -36,48 +41,57 @@ const VIBRATION = [300, 400, 250, 400, 250, 400];
  * scripts/generate-bells.py). Notifications never loop or repeat.
  * Bump this when sounds or vibration change: Android channels can't be edited.
  */
-export const CHANNEL_VERSION = 'v2';
+export const CHANNEL_VERSION = 'v4';
 
 /**
  * Android notification channels lock sound + vibration once created, so each
- * combination gets its own channel. Switching sound in Settings just moves the
- * scheduled notifications to another channel.
+ * sound / volume / vibration combination gets its own channel. Changing them
+ * in Settings just moves the scheduled notifications to another channel.
  */
-const channelIdFor = (sound: BellSoundId, vibrate: boolean) =>
-  `dailybell_${sound}_${vibrate ? 'vib' : 'novib'}_${CHANNEL_VERSION}`;
+const channelIdFor = (
+  sound: BellSoundId,
+  volume: BellVolumeLevel,
+  vibrate: boolean,
+) =>
+  `dailybell_${sound}_vol${volume}_${
+    vibrate ? 'vib' : 'novib'
+  }_${CHANNEL_VERSION}`;
 
-let staleRemoved = false;
-/** Deletes channels from older versions so users don't see duplicates in system settings. */
-const removeStaleChannels = async () => {
-  if (staleRemoved) return;
-  staleRemoved = true;
+/**
+ * Deletes every other DailyBell channel (older versions, previous sound /
+ * volume / vibration choices) so system settings only lists the one in use.
+ * sync() moves all scheduled bells onto the current channel right after.
+ */
+const removeStaleChannels = async (keepId: string) => {
   try {
     const channels = await notifee.getChannels();
     await Promise.all(
       channels
-        .filter(
-          c =>
-            c.id.startsWith('dailybell_') &&
-            !c.id.endsWith(`_${CHANNEL_VERSION}`),
-        )
+        .filter(c => c.id.startsWith('dailybell_') && c.id !== keepId)
         .map(c => notifee.deleteChannel(c.id)),
     );
   } catch {
-    staleRemoved = false; // try again next sync
+    // best effort; retried on the next sync
   }
 };
 
-const ensureAndroidChannel = async (sound: BellSoundId, vibrate: boolean) => {
-  const id = channelIdFor(sound, vibrate);
+const ensureAndroidChannel = async (
+  sound: BellSoundId,
+  volume: BellVolumeLevel,
+  vibrate: boolean,
+) => {
+  const id = channelIdFor(sound, volume, vibrate);
   if (Platform.OS !== 'android') return id;
-  await removeStaleChannels();
+  await removeStaleChannels(id);
   await notifee.createChannel({
     id,
-    name: `${getBellSound(sound).label}${vibrate ? ' + vibration' : ''}`,
+    name: `${getBellSound(sound).label} · volume ${volume * 10}%${
+      vibrate ? ' + vibration' : ''
+    }`,
     description: 'Timetable bell reminders',
     importance: AndroidImportance.HIGH,
     visibility: AndroidVisibility.PUBLIC,
-    sound, // res/raw/<sound>.wav
+    sound: bellResourceName(sound, volume), // res/raw/<sound>[_vol<n>].wav
     vibration: vibrate,
     vibrationPattern: vibrate ? VIBRATION : undefined,
   });
@@ -192,9 +206,10 @@ export const notificationService = {
 
     const channelId = await ensureAndroidChannel(
       settings.bellSound,
+      settings.bellVolume,
       settings.vibrationEnabled,
     );
-    const soundFile = getBellSound(settings.bellSound).fileName;
+    const soundFile = bellFileName(settings.bellSound, settings.bellVolume);
     const now = new Date();
 
     for (const event of events) {

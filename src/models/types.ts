@@ -20,6 +20,9 @@ export interface BellSound {
   fileName: string;
 }
 
+/** Volume slider step: 1 (quietest) … 10 (max). Default is very low; see defaultTimetable.ts. */
+export type BellVolumeLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+
 export type ThemePreference = 'system' | 'light' | 'dark';
 
 export type AccentId =
@@ -39,6 +42,7 @@ export interface AlarmSettings {
   vibrationEnabled: boolean;
   ringAtEnd: boolean;
   bellSound: BellSoundId;
+  bellVolume: BellVolumeLevel;
   theme: ThemePreference;
   accent: AccentId;
 }

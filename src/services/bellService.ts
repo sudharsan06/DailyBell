@@ -1,7 +1,7 @@
 import { Platform, Vibration } from 'react-native';
 import Sound from 'react-native-sound';
-import { getBellSound } from '../data/defaultTimetable';
-import { BellSoundId } from '../models/types';
+import { bellVolumeGain, getBellSound } from '../data/defaultTimetable';
+import { BellSoundId, BellVolumeLevel } from '../models/types';
 
 /**
  * Foreground bell playback. Background/terminated playback is done by the OS
@@ -45,13 +45,14 @@ export const bellService = {
     load(id).catch(() => undefined);
   },
 
-  async ring(id: BellSoundId, vibrate: boolean) {
+  /** Plays the full-volume file scaled by the level's gain — same loudness as the notification file. */
+  async ring(id: BellSoundId, volume: BellVolumeLevel, vibrate: boolean) {
     this.stop();
     if (vibrate) Vibration.vibrate(VIBRATION_PATTERN);
     try {
       const s = await load(id);
       current = s;
-      s.setVolume(1);
+      s.setVolume(bellVolumeGain(volume));
       s.setNumberOfLoops(0); // play once: the file itself is exactly 3 rings
       s.play(() => {
         if (current === s) current = undefined;

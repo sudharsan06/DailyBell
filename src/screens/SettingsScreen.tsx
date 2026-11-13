@@ -13,9 +13,16 @@ import {
 import { Card } from '../components/Card';
 import { SectionHeader } from '../components/SectionHeader';
 import { SettingRow } from '../components/SettingRow';
-import { BELL_SOUNDS } from '../data/defaultTimetable';
+import { StepSlider } from '../components/StepSlider';
+import {
+  BELL_SOUNDS,
+  MAX_BELL_VOLUME,
+  MIN_BELL_VOLUME,
+  bellVolumeLabel,
+} from '../data/defaultTimetable';
 import { RootStackParamList } from '../navigation/types';
-import { ThemePreference } from '../models/types';
+import { BellVolumeLevel, ThemePreference } from '../models/types';
+import { maybeShowSettingsInterstitial } from '../services/adsService';
 import { bellService } from '../services/bellService';
 import { notificationService } from '../services/notificationService';
 import { WidgetStatus, widgetService } from '../services/widgetService';
@@ -43,6 +50,8 @@ const THEMES: { id: ThemePreference; label: string }[] = [
   { id: 'dark', label: 'Dark' },
 ];
 
+const volumeText = (v: BellVolumeLevel) => `${v * 10}% · ${bellVolumeLabel(v)}`;
+
 export const SettingsScreen = ({ navigation }: Props) => {
   const t = useTheme();
   const s = useSettingsStore();
@@ -59,8 +68,15 @@ export const SettingsScreen = ({ navigation }: Props) => {
   }, [setStatus]);
 
   const [widget, setWidget] = useState<WidgetStatus>();
+  /** Slider position while dragging; saved (and previewed) on release. */
+  const [draftVolume, setDraftVolume] = useState<BellVolumeLevel>();
   const refreshWidget = useCallback(async () => {
     setWidget(await widgetService.getStatus());
+  }, []);
+
+  // Each visit to Settings may show an interstitial (frequency-capped).
+  useEffect(() => {
+    maybeShowSettingsInterstitial();
   }, []);
 
   // Re-check when the user comes back from system Settings or the launcher.
@@ -94,7 +110,8 @@ export const SettingsScreen = ({ navigation }: Props) => {
     }
   };
 
-  const testBell = () => bellService.ring(s.bellSound, s.vibrationEnabled);
+  const testBell = () =>
+    bellService.ring(s.bellSound, s.bellVolume, s.vibrationEnabled);
 
   return (
     <ScrollView
@@ -146,7 +163,7 @@ export const SettingsScreen = ({ navigation }: Props) => {
               subtitle={sound.description}
               onPress={() => {
                 s.update({ bellSound: sound.id });
-                bellService.ring(sound.id, false);
+                bellService.ring(sound.id, s.bellVolume, false);
               }}
               last={i === BELL_SOUNDS.length - 1}
               right={
@@ -174,6 +191,34 @@ export const SettingsScreen = ({ navigation }: Props) => {
           );
         })}
       </Card>
+
+      <SectionHeader title="Volume" />
+      <Card>
+        <Text style={[styles.cardTitle, { color: t.colors.text }]}>
+          Bell volume
+        </Text>
+        <Text style={[styles.cardSubtitle, { color: t.colors.textMuted }]}>
+          {volumeText(draftVolume ?? s.bellVolume)} · also limited by your
+          phone's {Platform.OS === 'ios' ? 'ringer' : 'notification'} volume
+        </Text>
+        <View style={styles.volumeSlider}>
+          <StepSlider
+            value={s.bellVolume}
+            min={MIN_BELL_VOLUME}
+            max={MAX_BELL_VOLUME}
+            accessibilityLabel="Bell volume"
+            formatValue={v => volumeText(v as BellVolumeLevel)}
+            onChange={v => setDraftVolume(v as BellVolumeLevel)}
+            onComplete={v => {
+              const level = v as BellVolumeLevel;
+              setDraftVolume(undefined);
+              s.update({ bellVolume: level });
+              bellService.ring(s.bellSound, level, false);
+            }}
+          />
+        </View>
+      </Card>
+
       <Pressable
         onPress={testBell}
         style={({ pressed }) => [
@@ -439,6 +484,7 @@ const styles = StyleSheet.create({
   status: { fontSize: 14, fontWeight: '700' },
   segment: { flexDirection: 'row', borderRadius: 14, padding: 4 },
   segmentGap: { marginTop: 12 },
+  volumeSlider: { marginTop: 10 },
   cardTitle: { fontSize: 16, fontWeight: '700' },
   cardSubtitle: { fontSize: 13, marginTop: 2 },
   swatchGrid: {

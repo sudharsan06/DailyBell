@@ -1,4 +1,9 @@
 {
   "name": "DailyBell",
-  "displayName": "DailyBell"
+  "displayName": "DailyBell",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-6508060827158792~4729846718",
+    "ios_app_id": "ca-app-pub-3940256099942544~1458002511",
+    "delay_app_measurement_init": true
+  }
 }

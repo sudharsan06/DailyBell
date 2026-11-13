@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Bell sounds are referenced by name from JS / notification channels, so keep them from resource shrinking. -->
 <resources xmlns:tools="http://schemas.android.com/tools"
-    tools:keep="@raw/bell_school,@raw/bell_chime,@raw/bell_digital" />
+    tools:keep="@raw/bell_school,@raw/bell_chime,@raw/bell_digital,@raw/bell_*_vol*" />

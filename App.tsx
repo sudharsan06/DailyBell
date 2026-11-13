@@ -10,6 +10,7 @@ import { ErrorBoundary } from './src/components/ErrorBoundary';
 import { useAlarmSync } from './src/hooks/useAlarmSync';
 import { AppNavigator } from './src/navigation/AppNavigator';
 import { registerForegroundHandler } from './src/services/alarmController';
+import { initAds } from './src/services/adsService';
 import { bellService } from './src/services/bellService';
 import { notificationService } from './src/services/notificationService';
 import { widgetService } from './src/services/widgetService';
@@ -29,6 +30,7 @@ const AlarmEngine = () => {
 
   useEffect(() => {
     notificationService.init().catch(() => undefined);
+    initAds();
     return registerForegroundHandler();
   }, []);
 

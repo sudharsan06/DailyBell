@@ -42,7 +42,11 @@ export const checkForegroundBell = (now: Date) => {
 
   const alarm: ActiveAlarm = { key, event: due, firedAt: now.getTime() };
   alarms.showAlarm(alarm);
-  bellService.ring(settings.bellSound, settings.vibrationEnabled);
+  bellService.ring(
+    settings.bellSound,
+    settings.bellVolume,
+    settings.vibrationEnabled,
+  );
   // If the OS notification also arrived, remove it from the tray: the
   // in-app alarm is the one the user acknowledges.
   notificationService.cancelDisplayed(due.id);
