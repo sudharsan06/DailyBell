@@ -22,6 +22,9 @@ react {
     //   skip the bundling of the JS bundle and the assets. Default is "debug", "debugOptimized".
     //   If you add flavors like lite, prod, etc. you'll have to list your debuggableVariants.
     // debuggableVariants = ["liteDebug", "liteDebugOptimized", "prodDebug", "prodDebugOptimized"]
+    //   DailyBell: empty list = the JS bundle is also packed into debug APKs, so a
+    //   debug install keeps working when Metro isn't running (it uses Metro when it is).
+    debuggableVariants = []
 
     /* Bundling */
     //   A list containing the node command and its flags. Default is just 'node'.

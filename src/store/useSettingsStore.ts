@@ -18,7 +18,9 @@ interface SettingsState extends AlarmSettings {
 }
 
 export const DEFAULT_SETTINGS: AlarmSettings = {
-  alarmsEnabled: true,
+  // Off on first launch: the user opts in with the Bell alarms toggle, which
+  // also asks for notification permission at that moment.
+  alarmsEnabled: false,
   vibrationEnabled: true,
   ringAtEnd: true,
   bellSound: 'bell_school',
